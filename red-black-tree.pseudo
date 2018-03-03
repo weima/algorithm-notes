@@ -1,0 +1,154 @@
+"""
+ A red-black tree is a balanced search tree. It has 5 characterastics: 
+ 1. Every Node is Either RED or BLACK;
+ 2. Root of the Tree is BLACK;
+ 3. Starting from Any Node, the number of RED children and BLACK children
+    are the same;
+ 4. Every RED Node has 2 BLACK children 
+ 5. Every leaf Node is BLACK
+
+ In this study we assume every Node carries a key of type number, so that we
+ can perform comparison opertion on it.
+"""
+
+type Side:
+    |RIGHT
+    |LEFT
+
+type Color:
+    |BLACK
+    |RED
+
+
+type Node:
+    key: Number
+    side: Side
+    color: Color
+    parent: Node
+    left_child: Node
+    right_child: Node
+
+
+"""
+NIL_NODE is a special node that acts as sentinel value
+to cover edge cases and to reduce complexity
+"""
+val NIL_NODE = Node(
+    key: Number
+    side: NIL
+    color: BLACK,
+    left_child: NIL
+    right_child: NIL
+    parent: NIL
+)
+
+function is_root(n: Node)-> boolean:
+    """
+    Test if a node is root of the tree 
+    Params: 
+      n a Node
+    Precondition: 
+      n is not NIL
+    Postcondition: 
+      None
+    Return: 
+      whether n is root of a tree
+    """
+    return n.parent == NIL_NODE
+
+
+function attach_child(parent: Node, child: Node, side: Side):
+    """
+    Attach a child node to a parent node to a specified side.
+    Params:
+       parent: The parent node
+       child: The child node
+       side: The side to be attached to 
+
+    Precondition: parent and child cannot both be NIL_NODE
+    Postcondition: 
+       1. if parent is not NIL_NODE, its' child field of correct side is assigned to child 
+       2. if child is not NIL_NODE, 
+           2.1 its' parent field is assigned to parent node;
+           2.2 its' side field is assigned to input parameter side;
+    Return: None
+    """
+    child.parent = parent
+
+    # Assign child to the child field of parent
+    if parent != NIL_NODE:
+        if side == RIGHT:
+            parent.right_child = child
+        else:
+            parent.left_child = child
+
+    # Assign parent to the parent field of child
+    if child != NIL_NODE:
+        child.parent = parent
+        child.side = side
+
+function has_left_child(n: Node):
+    """
+     TODO: pa
+    """
+    pass
+
+
+function transpant(old: Node, new: Node):
+    """
+    Replaces a node with another one
+    Params: 
+      old, the Node to be replaced;
+      new, the Node that will replace the old Node
+    Precondition: 
+       1. new Node can be nither NIL or NIL_NODE;
+       2. the new node and old node cannot both have left child;
+       3. the new node and old node cannot both have right child;
+    Postcondition:
+       The place where old Node resides will contain new Node
+    Return:
+    """
+    parent = old.parent
+    old_side = old.side
+    old_left_child = old.left_child
+    old_right_child = old.right_child
+
+    attach_child(
+        parent=parent,
+        child=new,
+        side=old_side
+    )
+
+    if old.left_child
+
+
+function left_rotation(n: Node):
+    """
+    Rotate a Node to its' left
+    Params: 
+      n, the node to be rotated
+    Precondition: 
+      n has a right child and does not have left child
+    Postcondition: 
+      n's right child become its' parent, and n become LEFT child of its' new parent
+    Return: 
+      None
+    """
+    new_parent = n.right_child
+    old_parent = n.parent
+    old_side = n.side
+
+    attach_child(
+
+    )
+
+    attach_child(
+        parent=new_parent,
+        child=n,
+        side=LEFT
+    )
+
+
+function rb_delete(tree: Tree, z: Node):
+    y = z
+    y_origin_color = y.color
