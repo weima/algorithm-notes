@@ -1,0 +1,29 @@
+"""
+ Binary Search Tree is a binary tree with the following characteristics
+ Let x be a Node in BST, y be another Node resides in x's LEFT sub tree,
+ Then x.key >= y.key
+
+ Let x be a Node in BST, y be another Node resides in x's RIGHT sub tree,
+ Then x.key <= y.key
+"""
+
+type Nil = NIL
+
+type Side =
+  | RIGHT
+  | LEFT
+
+type Node =
+  key: Number
+  side: Side
+  parent: Node
+  left_child: Node
+  right_child: Node
+
+function is_root(n:Node):
+   """
+     Params:
+     Precondition:
+     Postcondition:
+     Return:
+   """
