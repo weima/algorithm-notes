@@ -221,7 +221,26 @@ function rotate(n:Node, side: Side):
     attach_child(parent=new_parent, child=n, side = side)
 
 
+function rb_insert(tree: Tree, z: Node):
+    """
+     Insert a Node into red-black tree
 
+     Params:
+       tree, a Tree to insert Node into
+       z, a Node to be inserted into the red-black tree
+
+     Precondition:
+       z is not NIL_NODE
+
+     Postcondition:
+       z is inserted into the red-black tree
+
+     Return:
+       None
+    """
+
+    # First find the position where the node can be inserted
+    pass
 
 
 function rb_delete(tree: Tree, z: Node):
