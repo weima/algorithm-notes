@@ -7,23 +7,51 @@
  Then x.key <= y.key
 """
 
-type Nil = NIL
 
 type Side =
-  | RIGHT
-  | LEFT
+      | RIGHT
+      | LEFT
+
 
 type Node =
-  key: Number
-  side: Side
-  parent: Node
-  left_child: Node
-  right_child: Node
+    key: Number
+    side: Side
+    parent: Node
+    left_child: Node
+    right_child: Node
 
-function is_root(n:Node):
+NIL_Node = Node(
+    key: Nil
+    side: Nil
+    parent: Nil
+    left_child: Nil
+    right_child: Nil
+)
+
+function search(n:Node, k:Number):
    """
      Params:
+       n, a Node where the search starts
+       k, a Number to search
      Precondition:
+       None
      Postcondition:
+       None
      Return:
+       A Node conaining the searching key, otherwise NIL_NODE
    """
+   if n ==  NIL_NODE:
+       return NIL_NODE
+   else if n.key == k:
+       return n
+   else if k < n.key:
+       return search(n.left, k)
+   else:
+       return search(n.right, k)
+
+
+
+
+
+
+
