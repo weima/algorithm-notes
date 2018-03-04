@@ -8,11 +8,12 @@ This repository contains notes about my understanding of Algorithms
  * Types are defined with **type** keyword
  * Routines are defined with **function** keyword
  * Block comments are contained in python doc region 
-     {code language=python} 
+    ```python
       """
-        comment
+        This is a sample comments
       """
-      {/code}
+    ``` 
+      
       
   * Line comments are followed by leading **#** sign
   
