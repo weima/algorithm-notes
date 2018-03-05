@@ -50,7 +50,47 @@ function search(n:Node, k:Number):
        return search(n.right, k)
 
 
+function mininum(n: Node):
+   """
+   Find the Node containing the lowest value in a tree staring from input Node n
+   Params:
+     n, The root of the tree
 
+   Precondition:
+     n is not NIL_NODE
+
+   Postcondition:
+     None
+
+   Return:
+   A Node containing the lowest key
+   """
+
+   while n.left != NIL_NODE:
+       n = n.left_child
+    return n
+
+
+function maximum(n: Node):
+   """
+   Find the Node containing the maximum key in a tree starting from input Node
+
+   Params:
+      n, The root of the tree
+
+   Precondition:
+      n is not NIL_NODE
+
+   Postcondition:
+      None
+
+   Return:
+   """
+   while n.right != NIL_NODE:
+       n = n.right_child
+   return n
+
+    
 
 
 
