@@ -50,9 +50,10 @@ function search(n:Node, k:Number):
        return search(n.right, k)
 
 
+
 function mininum(n: Node):
    """
-   Find the Node containing the lowest value in a tree staring from input Node n
+   Find the Node containing the lowest value in a tree rooted at the input Node n
    Params:
      n, The root of the tree
 
@@ -63,17 +64,17 @@ function mininum(n: Node):
      None
 
    Return:
-   A Node containing the lowest key
+     A Node containing the lowest key
    """
 
-   while n.left != NIL_NODE:
+   while n.left_child != NIL_NODE:
        n = n.left_child
-    return n
+   return n
 
 
 function maximum(n: Node):
    """
-   Find the Node containing the maximum key in a tree starting from input Node
+   Find the Node containing the maximum key in a tree rooted at the input Node
 
    Params:
       n, The root of the tree
@@ -85,12 +86,43 @@ function maximum(n: Node):
       None
 
    Return:
+      The Node containing the maximum key 
    """
-   while n.right != NIL_NODE:
+   while n.right_child != NIL_NODE:
        n = n.right_child
    return n
 
-    
+function successor(n: Node):
+   """
+   Find a successor of the input Node.
+   A successor of a Node is defined as:
+       1. Let set S be a set of Nodes with key value greater than n.key;
+       2. The successor to n is the Node resides in S and contains the smallest key
+
+   Params:
+      n, The input Node
+
+   Precondition:
+      n is not NIL_NODE
+
+   Postcondition:
+      None
+
+   """
+
+   # First try right child
+   if n.right_child != NIL_NODE:
+       return minimum(n.right_child)
+
+   # Could not find right childe, and Node is already
+   # the right most Node, then it's not possible to find
+   # anything
+   if n.side == RIGHT:
+       return NIL_NODE
+
+   #Could not find in right child, ask for parent
+   let parent = n.parent
+
 
 
 
